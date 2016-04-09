@@ -1,5 +1,7 @@
 # cpic-data - Data produced by the Clinical Pharmacogenetics Implementation Consortium
 
+[![Build Status](https://travis-ci.org/PharmGKB/cpic-data.svg?branch=master)](https://travis-ci.org/PharmGKB/cpic-data)
+
 This repo contains semi-structured data as defined in [publications](https://cpicpgx.org/publications/) written by CPIC.
 
 
