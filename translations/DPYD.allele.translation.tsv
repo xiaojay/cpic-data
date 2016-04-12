@@ -1,0 +1,30 @@
+GENE:DPYD	4/5/16																							
+	"Nucleotide changes on gene per PMID 9918128, 11875367, 11895907 and dbSNP. "	1905+1G>A	62G>A	85T>C	295_298delTCAT	703C>T	1003G>T	1156G>T	1601G>A	1627A>G	1679T>G	1898delC	2194G>A	2657G>A	c.2846A>T	2983G>T								
+	Effect on protein (NP_000101.2)	Asp581_Asn635del	Arg21Gln	Cys29Arg	Phe100Serfs	Arg235Trp	Val335Leu	Glu386Ter	Ser534Asn	Ile543Val	Ile560Ser	Pro633Glnfs	Val732Ile	Arg886His	Asp949Val	Val995Phe								
+	"Position at NC_000001.11 (Homo sapiens chromosome 1, GRCh38.p2)"	g.97450058C>T	g.97883352C>T	g.97883329A>G	g.97740415_97740418delATGA	g.97691776G>A	g.97593343C>A	g.97573943C>A	g.97515865C>T	g.97515839T>C	g.97515787A>C	g.97450066delG	g.97305364C>T	g.97098598C>T	g.97082391T>A	g.97079071C>A								
+	Position at NG_008807.2 (DPYD RefSeqGene)	g.476002G>A	g.42708G>A	g.42731T>C	g.185642_185645delTCAT	g.234284C>T	g.332717G>T	g.352117G>T	g.410195G>A	g.410221A>G	g.410273T>G	g.475994delC	g.620696G>A	g.827462G>A	g.843669A>T	g.846989G>T								
+	rsID	rs3918290 	rs80081766	rs1801265 	rs72549309	rs1801266	rs72549306	rs78060119	rs1801158 	rs1801159	rs55886062	rs72549303	rs1801160	rs1801267	rs67376798	rs1801268								
+DPYD Allele	Allele Functional Status																African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency
+*1	Normal Function	C	C	A	ATGA	G	C	C	C	T	A	G	C	C	T	C								
+*2A	No Function	T																						
+*2B		T								C														
+*3	Probable Decreased Function											delG												
+*4	Normal Function								T															
+*5	Normal Function									C														
+*6	Normal Function												T											
+*7	Probable Decreased Function				delATGA																			
+*8	Probable Decreased Function					A																		
+*9A	Normal Function			G																				
+*9B	Probable Decreased Function			G										T										
+*10	Probable Decreased Function															A								
+*11	Probable Decreased Function						A																	
+*12	Probable Decreased Function		T					A																
+*13	No Function										C													
+rs67376798T/A	No Function														A									
+																								
+NOTES:																								
+Bases reported on the positive chromosomal strand from Golden Path.  																								
+"Nomenclature from *1-10 from McLeod et al (PMID: 9918128), *11 and *12 from Mattison et al, (PMID: 11875367), *13 from Johnson et al, (PMID: 11895907). "																								
+"An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type.” "																								
+"In a 2014 update on PharmGKB (https://www.pharmgkb.org/guideline/PA166109594) the CPIC authors recommend that the DPYD*4, *5, *6 and *9A alleles be categorized as ""normal"" activity, in part based upon the recent publication: Comparative Functional Analysis of DPYD Variants of Potential Clinical Relevance to Dihydropyrimidine Dehydrogenase Activity (PMID: 24648345)."																								
+																								
