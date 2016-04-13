@@ -1,4 +1,4 @@
-GENE:CYP3A5	42466
+GENE:CYP3A5	04/06/16
 	Nucleotide change per gene from http://www.cypalleles.ki.se/cyp3a5.htm	3699C>T	6986A>G	12952T>C	14665A>G	14690G>A	19386G>A	27131_27132insT	27289C>A
 	Effect on protein (NP_000768.1)	Arg28Cys	intron 3; frameshift	intron5; splicing	Gln200Arg	Lys208=; alternative splicing	Ala337Thr	Thr346Tyrfs	Thr398Asn
 	Position at NC_000007.14 (Homo sapiens chromosome 7, GRCh38.p2)	g.99676198G>A	g.99672916T>C	g.99666950A>G	g.99665237T>C	g.99665212C>T	g.99660516C>T	g.99652770_99652771insA	g.99652613G>T

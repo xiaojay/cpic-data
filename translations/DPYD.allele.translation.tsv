@@ -1,4 +1,4 @@
-GENE:DPYD	41003	null	null	null	null	null	null	null	null	
+GENE:DPYD	04/05/16									
 	Nucleotide changes on gene per PMID 9918128, 11875367, 11895907 and dbSNP.	1905+1G>A	62G>A	85T>C	295_298delTCAT	703C>T	1003G>T	1156G>T	1601G>A	1627A>G	1679T>G	1898delC	2194G>A	2657G>A	c.2846A>T	2983G>T
 	Effect on protein (NP_000101.2)	Asp581_Asn635del	Arg21Gln	Cys29Arg	Phe100Serfs	Arg235Trp	Val335Leu	Glu386Ter	Ser534Asn	Ile543Val	Ile560Ser	Pro633Glnfs	Val732Ile	Arg886His	Asp949Val	Val995Phe
 	Position at NC_000001.11 (Homo sapiens chromosome 1, GRCh38.p2)	g.97450058C>T	g.97883352C>T	g.97883329A>G	g.97740415_97740418delATGA	g.97691776G>A	g.97593343C>A	g.97573943C>A	g.97515865C>T	g.97515839T>C	g.97515787A>C	g.97450066delG	g.97305364C>T	g.97098598C>T	g.97082391T>A	g.97079071C>A
@@ -23,7 +23,7 @@ DPYD Allele	Allele Functional Status																African Allele Frequency	Afr
 rs67376798T/A	No Function														A									
 NOTES:										
 Bases reported on the positive chromosomal strand from Golden Path.										
-Nomenclature from *1-10 from McLeod et al (PMID: 9918128), *11 and *12 from Mattison et al, (PMID: 11875367), *13 from Johnson et al, (PMID: 11895907).		null	null	null	null	null	null	null	null	
-An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type.”		null	null	null	null	null	null	null	null	
-In a 2014 update on PharmGKB (https://www.pharmgkb.org/guideline/PA166109594) the CPIC authors recommend that the DPYD*4, *5, *6 and *9A alleles be categorized as "normal" activity, in part based upon the recent publication: Comparative Functional Analysis of DPYD Variants of Potential Clinical Relevance to Dihydropyrimidine Dehydrogenase Activity (PMID: 24648345).		null	null	null	null	null	null	null	null	
-		null	null	null	null	null	null	null	null	
+Nomenclature from *1-10 from McLeod et al (PMID: 9918128), *11 and *12 from Mattison et al, (PMID: 11875367), *13 from Johnson et al, (PMID: 11895907).										
+An important caveat for all genotyping tests is that the decision to assign an allele a “wild-type” status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as “wild-type.”										
+In a 2014 update on PharmGKB (https://www.pharmgkb.org/guideline/PA166109594) the CPIC authors recommend that the DPYD*4, *5, *6 and *9A alleles be categorized as "normal" activity, in part based upon the recent publication: Comparative Functional Analysis of DPYD Variants of Potential Clinical Relevance to Dihydropyrimidine Dehydrogenase Activity (PMID: 24648345).										
+										
