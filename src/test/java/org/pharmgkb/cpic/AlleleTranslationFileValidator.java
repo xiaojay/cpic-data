@@ -44,15 +44,15 @@ public class AlleleTranslationFileValidator {
   private static final int LINE_POPS = 6;
   private static final int OUTPUT_FORMAT_VERSION = 1;
 
-  private int lastVariantColumn;
-  private String geneName;
-  private String geneRefSeq;
-  private String versionDate;
-  private String versionTag; // TODO
-  private String genomeBuild;
-  private String chromosomeName;
-  private String chromosomeRefSeq;
-  private String proteinRefSeq;
+  private static int lastVariantColumn;
+  private static String geneName;
+  private static String geneRefSeq;
+  private static String versionDate;
+  private static String versionTag; // TODO
+  private static String genomeBuild;
+  private static String chromosomeName;
+  private static String chromosomeRefSeq;
+  private static String proteinRefSeq;
 
   @Test
   public void testSheet() {
