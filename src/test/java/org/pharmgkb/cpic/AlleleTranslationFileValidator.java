@@ -123,7 +123,7 @@ public class AlleleTranslationFileValidator {
     sf_logger.info("\tprotein seq: "+proteinRefSeq);
   }
 
-  private static void testChromoLine(String[] fields) {
+  private static void testChromoLine(String[] fields) throws IOException {
     String title = fields[1];
     assertTrue("No chromosomal position description specified", StringUtils.isNotBlank(title));
 
@@ -132,6 +132,11 @@ public class AlleleTranslationFileValidator {
 
     chromosomeRefSeq = m.group(1);
     sf_logger.info("\tchromosome seq: " + chromosomeRefSeq);
+
+    AssemblyMap assemblyMap = new AssemblyMap();
+    String build = assemblyMap.get(chromosomeRefSeq);
+    assertNotNull("Unrecognized chromosome identifier " + chromosomeRefSeq, build);
+    assertEquals("Chromosome identifier not on GRCh38: " + chromosomeRefSeq, "b38", build);
 
     int chrNum = Integer.parseInt(m.group(2), 10); // a leading 0 sometimes indicates octal, but we know this is always base 10
     assertTrue("Unknown or unsupported chromosome number "+chrNum+" on chromosomal line "+LINE_CHROMO, (chrNum >= 1 && chrNum <= 24));
