@@ -32,7 +32,8 @@ public class AlleleTranslationFileValidator {
   private static final int sf_minLineCount = 7;
   private static final String sf_separator = "\t";
   private static final Pattern sf_geneFieldPattern = Pattern.compile("^GENE:\\s*(\\w+)$");
-  private static final Pattern sf_refSeqPattern = Pattern.compile("^.*(N\\w_\\d+\\.\\d+).*$");
+  private static final Pattern sf_refSeqPattern = Pattern.compile("^.*(N\\w_(\\d+)\\.\\d+).*$");
+  private static final Pattern sf_genomeBuildPattern = Pattern.compile("^.*(GRCh\\d+(?:\\.p\\d+)?).*$");
   private static final SimpleDateFormat sf_dateFormat = new SimpleDateFormat("MM/dd/yy");
 
   private static final int LINE_GENE = 0;
@@ -41,6 +42,17 @@ public class AlleleTranslationFileValidator {
   private static final int LINE_CHROMO = 3;
   private static final int LINE_GENESEQ = 4;
   private static final int LINE_POPS = 6;
+  private static final int OUTPUT_FORMAT_VERSION = 1;
+
+  private int lastVariantColumn;
+  private String geneName;
+  private String geneRefSeq;
+  private String versionDate;
+  private String versionTag; // TODO
+  private String genomeBuild;
+  private String chromosomeName;
+  private String chromosomeRefSeq;
+  private String proteinRefSeq;
 
   @Test
   public void testSheet() {
@@ -85,10 +97,12 @@ public class AlleleTranslationFileValidator {
     Matcher m = sf_geneFieldPattern.matcher(fields[0]);
     assertTrue("Gene field not in expected format: "+fields[0], m.matches());
 
-    System.out.println("\tgene: " + m.group(1));
+    geneName = m.group(1);
+    System.out.println("\tgene: " + geneName);
 
     Date date = sf_dateFormat.parse(fields[1]);
     assertNotNull(date);
+    versionDate = fields[1];
   }
 
   private static void testNamingLine(String[] fields) {
@@ -102,7 +116,8 @@ public class AlleleTranslationFileValidator {
     Matcher m = sf_refSeqPattern.matcher(title);
     assertTrue("No RefSeq identifier for protein line "+LINE_PROTEIN, m.matches());
 
-    System.out.println("\tprotein seq: "+m.group(1));
+    proteinRefSeq = m.group(1);
+    System.out.println("\tprotein seq: "+proteinRefSeq);
   }
 
   private static void testChromoLine(String[] fields) {
@@ -112,7 +127,25 @@ public class AlleleTranslationFileValidator {
     Matcher m = sf_refSeqPattern.matcher(title);
     assertTrue("No RefSeq identifier for chromosomal line "+LINE_CHROMO, m.matches());
 
-    System.out.println("\tchromosome seq: " + m.group(1));
+    chromosomeRefSeq = m.group(1);
+    System.out.println("\tchromosome seq: " + chromosomeRefSeq);
+
+    int chrNum = parseInt(m.group(2), 10); // a leading 0 sometimes indicates octal, but we know this is always base 10
+    assertTrue("Unknown or unsupported chromosome number "+chrNum+" on chromosomal line "+LINE_CHROMO, (chrNum >= 1 && chrNum <= 24));
+    if (chrNum == 23) {
+		chromosomeName = "chrX";
+	} else if (chrNum == 24) {
+		chromosomeName = "chrY";
+	} else {
+		chromosomeName = "chr" + chrNum;
+	}
+    System.out.println("\tchromosome name: " + chromosomeName);
+
+    m = sf_genomeBuildPattern.matcher(title);
+    assertTrue("No genome build identifier for chromosomal line "+LINE_CHROMO, m.matches());
+
+    genomeBuild = m.group(1);
+    System.out.println("\tgenome build: " + genomeBuild);
 
     int lastVariantColumn = 2;
     for (int i=2; i<fields.length; i++) {
@@ -130,7 +163,8 @@ public class AlleleTranslationFileValidator {
     Matcher m = sf_refSeqPattern.matcher(title);
     assertTrue("No RefSeq identifier for gene sequence line "+LINE_GENESEQ, m.matches());
 
-    System.out.println("\tgene seq: " + m.group(1));
+    geneRefSeq = m.group(1);
+    System.out.println("\tgene seq: " + geneRefSeq);
   }
 
   private static void testPopLine(String[] fields) {
