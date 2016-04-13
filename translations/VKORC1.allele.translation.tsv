@@ -1,6 +1,6 @@
 GENE:VKORC1	04/12/16
-		-1639G>A
-	Effect on protein	nearGene-5
+	Nucleotide Change	-1639G>A
+	Effect on protein NP_076869.1	nearGene-5
 	Position at NC_000016.10 (Homo sapiens chromosome 16, GRCh38.p2)	g.31096368C>T
 	Position at NG_011564.1 (VKORC1 RefSeqGene)	g.3588G>A
 	rsID	rs9923231

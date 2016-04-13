@@ -4,7 +4,7 @@ GENE:UGT1A1	04/06/16
 	Position at NC_000002.12 (Homo sapiens chromosome 2, GRCh38.p2)	g.233757013T>G	g.233759924C>T	g.233760235TA[6]>TA[5]TA[7]TA[8]	g.233760498G>A	g.233760973C>A
 	Position at NG_002601.2 (UGT1A1 RefSeqGene)	g.172270T>G	g.175181C>T	g.175492TA[6]>TA[5]TA[7]TA[8]	g.175755G>A	g.176230C>A
 	rsID	rs4124874	rs887829	rs8175347	rs4148323	rs35350960
-UGT1A1 Allele	Allele Functional Status						African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency
+Allele	Allele Functional Status						African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency
 *1	Normal function	T	C	TATATATATATA	G	C								
 *6	Decreased function				A									
 *27	Decreased function					A								

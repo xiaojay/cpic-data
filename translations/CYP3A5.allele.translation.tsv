@@ -4,7 +4,7 @@ GENE:CYP3A5	04/06/16
 	Position at NC_000007.14 (Homo sapiens chromosome 7, GRCh38.p2)	g.99676198G>A	g.99672916T>C	g.99666950A>G	g.99665237T>C	g.99665212C>T	g.99660516C>T	g.99652770_99652771insA	g.99652613G>T
 	Position at NG_007938.1 (CYP3A5 RefSeqGene)	g.8801C>T	g.12083G>A	g.18049T>C	g.19762A>G	g.19787G>A	g.24483G>A	g.32228_32229insT	g.32386C>A
 	rsID	rs55817950	rs776746	rs55965422	rs56411402	rs10264272	rs28383479	rs41303343	rs28365083
-CYP3A5 Allele	Allele Functional Status									African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency
+Allele	Allele Functional Status									African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency
 *1	Normal function	G	T	A	T	C	C	del	G								
 *2	Unknown/Uncertain function								T								
 *3	No function		C				V										
