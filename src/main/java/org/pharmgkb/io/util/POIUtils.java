@@ -14,12 +14,14 @@ import java.math.MathContext;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
@@ -38,6 +40,7 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
  * @author Winston Gor
  */
 public class POIUtils {
+  private static final SimpleDateFormat sf_dateFormat = new SimpleDateFormat("MM/dd/yy");
 
   private POIUtils() {
   }
@@ -82,6 +85,9 @@ public class POIUtils {
       if (cell != null) {
         switch (cell.getCellType()) {
           case Cell.CELL_TYPE_NUMERIC:
+            if (HSSFDateUtil.isCellDateFormatted(cell)) {
+              return sf_dateFormat.format(cell.getDateCellValue());
+            }
             if (cell instanceof XSSFCell) {
               return ((XSSFCell) cell).getRawValue();
             }
@@ -330,7 +336,7 @@ public class POIUtils {
             writer.print("\t");
           }
           if (colCount < line.size()) {
-            writer.print(line.get(colCount));
+            writer.print(line.get(colCount) == null ? "" : line.get(colCount));
           }
         }
         for (; colCount < minCols; colCount += 1) {

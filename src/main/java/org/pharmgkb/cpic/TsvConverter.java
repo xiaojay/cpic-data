@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 public class TsvConverter {
 
   private static final Pattern sf_geneSymbolPattern = Pattern.compile("([A-Z0-9]+).*");
-  private static DirectoryStream.Filter<Path> onlyExcel = p -> p.toString().endsWith(".xlsx") || p.toString().endsWith(".xls");
+  private static DirectoryStream.Filter<Path> onlyExcel = p -> (p.toString().endsWith(".xlsx") || p.toString().endsWith(".xls") && !p.toString().startsWith("~"));
 
   public static void main(String[] args) {
     if (args.length != 1) {
@@ -48,14 +48,14 @@ public class TsvConverter {
   }
 
   private static void convertFile(Path path) throws RuntimeException {
-    System.out.println("Converting file " + path);
     try {
       Matcher m = sf_geneSymbolPattern.matcher(path.getFileName().toString());
       if (!m.matches()) {
-        throw new RuntimeException("Error in excel file naming: " + path.getFileName().toString());
+        return;
       }
       String gene = m.group(1);
 
+      System.out.println("Converting file " + path);
       POIUtils.convertToTsv(path, path.getParent().resolve(gene+".allele.translation.tsv"));
     }
     catch (IOException ex) {
