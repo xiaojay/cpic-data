@@ -35,6 +35,8 @@ public class AlleleTranslationFileValidator {
   private static final Pattern sf_genomeBuildPattern = Pattern.compile("^.*(GRCh\\d+(?:\\.p\\d+)?).*$");
   private static final Pattern sf_populationTitle = Pattern.compile("^(.*) Allele Frequency$");
   private static final Pattern sf_basePattern = Pattern.compile("^(del[ATCG]*)|(ins[ATCG]*)|([ATCGMRWSYKVHDBN]+)$");
+  private static final Pattern sf_hgvsPosition = Pattern.compile("^[cgp]\\.(\\d+).*$");
+  private static final String sf_hgvsSeparator = ";";
   private static final SimpleDateFormat sf_dateFormat = new SimpleDateFormat("MM/dd/yy");
 
   private static final int LINE_GENE = 0;
@@ -141,12 +143,12 @@ public class AlleleTranslationFileValidator {
     int chrNum = Integer.parseInt(m.group(2), 10); // a leading 0 sometimes indicates octal, but we know this is always base 10
     assertTrue("Unknown or unsupported chromosome number "+chrNum+" on chromosomal line "+LINE_CHROMO, (chrNum >= 1 && chrNum <= 24));
     if (chrNum == 23) {
-		chromosomeName = "chrX";
-	} else if (chrNum == 24) {
-		chromosomeName = "chrY";
-	} else {
-		chromosomeName = "chr" + chrNum;
-	}
+      chromosomeName = "chrX";
+    } else if (chrNum == 24) {
+      chromosomeName = "chrY";
+    } else {
+      chromosomeName = "chr" + chrNum;
+    }
     sf_logger.info("\tchromosome name: " + chromosomeName);
 
     m = sf_genomeBuildPattern.matcher(title);
@@ -159,9 +161,15 @@ public class AlleleTranslationFileValidator {
     for (int i=2; i<fields.length; i++) {
       if (StringUtils.isNotBlank(fields[i])) {
         lastVariantColumn = i;
+        verifyPositionText(fields[i]);
       }
     }
     sf_logger.info("\t# variants specified: " + (lastVariantColumn-1));
+  }
+
+  private static void verifyPositionText(String text) {
+    String[] positions = text.split(sf_hgvsSeparator);
+    Arrays.stream(positions).forEach(p -> assertTrue("Position format doesn't match: "+p, sf_hgvsPosition.matcher(StringUtils.strip(p)).matches()));
   }
 
   private static void testGeneSeqLine(String[] fields) {
@@ -173,6 +181,10 @@ public class AlleleTranslationFileValidator {
 
     geneRefSeq = m.group(1);
     sf_logger.info("\tgene seq: " + geneRefSeq);
+
+    for (int i=2; i<fields.length; i++) {
+      verifyPositionText(fields[i]);
+    }
   }
 
   private static void testPopLine(String[] fields) {
