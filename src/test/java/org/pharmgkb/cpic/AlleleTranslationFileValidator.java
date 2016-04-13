@@ -185,8 +185,10 @@ public class AlleleTranslationFileValidator {
   }
 
   private static void testVariantLines(List<String> lines) {
-    List<String> variantLines = new ArrayList<>();
     boolean isVariantLine = false;
+    String[] variantFields = lines.get(LINE_CHROMO).split(sf_separator);
+    int lastVariantIndex = variantFields.length;
+
     for (String line : lines) {
       if (line.toLowerCase().startsWith("notes:")) {
         return;
@@ -195,17 +197,13 @@ public class AlleleTranslationFileValidator {
         isVariantLine = true;
       }
       else if (isVariantLine) {
-        variantLines.add(line);
-      }
-    }
-
-    for (String line : variantLines) {
-      String[] fields = line.split(sf_separator);
-      if (fields.length > 2) {
-        Set<String> badAlleles = Arrays.stream(Arrays.copyOfRange(fields, 2, fields.length))
-            .filter(f -> !sf_basePattern.matcher(f).matches())
-            .collect(Collectors.toSet());
-        assertFalse(fields[0] + " has bad base pair values " + badAlleles.stream().collect(Collectors.joining(sf_separator)), badAlleles.size()>0);
+        String[] fields = line.split(sf_separator);
+        if (fields.length > 2) {
+          Set<String> badAlleles = Arrays.stream(Arrays.copyOfRange(fields, 2, lastVariantIndex))
+              .filter(f -> StringUtils.isNotBlank(f) && !sf_basePattern.matcher(f).matches())
+              .collect(Collectors.toSet());
+          assertFalse(fields[0] + " has bad base pair values " + badAlleles.stream().collect(Collectors.joining(";")), badAlleles.size()>0);
+        }
       }
     }
   }
