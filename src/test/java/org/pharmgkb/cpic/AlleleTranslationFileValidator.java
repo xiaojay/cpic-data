@@ -7,9 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,9 +16,7 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  * Test to make sure TSV translation tables are in the expected format.
@@ -34,6 +30,8 @@ public class AlleleTranslationFileValidator {
   private static final Pattern sf_geneFieldPattern = Pattern.compile("^GENE:\\s*(\\w+)$");
   private static final Pattern sf_refSeqPattern = Pattern.compile("^.*(N\\w_(\\d+)\\.\\d+).*$");
   private static final Pattern sf_genomeBuildPattern = Pattern.compile("^.*(GRCh\\d+(?:\\.p\\d+)?).*$");
+  private static final Pattern sf_populationTitle = Pattern.compile("^(.*) Allele Frequency$");
+  private static final Pattern sf_basePattern = Pattern.compile("^(del[ATCG]*)|(ins[ATCG]*)|([ATCGMRWSYKVHDBN]+)$");
   private static final SimpleDateFormat sf_dateFormat = new SimpleDateFormat("MM/dd/yy");
 
   private static final int LINE_GENE = 0;
@@ -84,6 +82,8 @@ public class AlleleTranslationFileValidator {
       testChromoLine(lines.get(LINE_CHROMO).split(sf_separator));
       testGeneSeqLine(lines.get(LINE_GENESEQ).split(sf_separator));
       testPopLine(lines.get(LINE_POPS).split(sf_separator));
+      testVariantLines(lines);
+
     } catch (Exception e) {
       e.printStackTrace();
       fail("Problem checking file "+e.getMessage());
@@ -130,7 +130,7 @@ public class AlleleTranslationFileValidator {
     chromosomeRefSeq = m.group(1);
     System.out.println("\tchromosome seq: " + chromosomeRefSeq);
 
-    int chrNum = parseInt(m.group(2), 10); // a leading 0 sometimes indicates octal, but we know this is always base 10
+    int chrNum = Integer.parseInt(m.group(2), 10); // a leading 0 sometimes indicates octal, but we know this is always base 10
     assertTrue("Unknown or unsupported chromosome number "+chrNum+" on chromosomal line "+LINE_CHROMO, (chrNum >= 1 && chrNum <= 24));
     if (chrNum == 23) {
 		chromosomeName = "chrX";
@@ -168,11 +168,45 @@ public class AlleleTranslationFileValidator {
   }
 
   private static void testPopLine(String[] fields) {
+    assertEquals("Expected the title 'Allele' in first column of row " + (LINE_POPS+1), "Allele", fields[0]);
+    assertEquals("Expected the title 'Allele Functional Status' in second column of row " + (LINE_POPS+1), "Allele Functional Status", fields[1]);
+
     assertTrue("No populations specified", fields.length>2);
     List<String> pops = Arrays.stream(Arrays.copyOfRange(fields, 2, fields.length))
         .filter(StringUtils::isNotBlank)
         .collect(Collectors.toList());
     assertNotNull(pops);
     assertTrue(pops.size()>0);
+
+    pops.stream().forEach(p -> {
+      Matcher m = sf_populationTitle.matcher(p);
+      assertTrue("Allele frequency column title should end in 'Allele Frequency'", m.matches());
+    });
+  }
+
+  private static void testVariantLines(List<String> lines) {
+    List<String> variantLines = new ArrayList<>();
+    boolean isVariantLine = false;
+    for (String line : lines) {
+      if (line.toLowerCase().startsWith("notes:")) {
+        return;
+      }
+      else if (line.startsWith("Allele")) {
+        isVariantLine = true;
+      }
+      else if (isVariantLine) {
+        variantLines.add(line);
+      }
+    }
+
+    for (String line : variantLines) {
+      String[] fields = line.split(sf_separator);
+      if (fields.length > 2) {
+        Set<String> badAlleles = Arrays.stream(Arrays.copyOfRange(fields, 2, fields.length))
+            .filter(f -> !sf_basePattern.matcher(f).matches())
+            .collect(Collectors.toSet());
+        assertFalse(fields[0] + " has bad base pair values " + badAlleles.stream().collect(Collectors.joining(sf_separator)), badAlleles.size()>0);
+      }
+    }
   }
 }
