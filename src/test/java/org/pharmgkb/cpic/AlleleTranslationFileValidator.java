@@ -57,7 +57,7 @@ public class AlleleTranslationFileValidator {
   private static final int OUTPUT_FORMAT_VERSION = 1;
 
   private static Writer outputWriter;
-  private static int lastVariantColumn;
+  private static int numVariants;
   private static String geneName;
   private static String geneRefSeq;
   private static String geneOrientation;
@@ -96,7 +96,7 @@ public class AlleleTranslationFileValidator {
       List<String> lines = Files.readAllLines(f);
       assertTrue("Not enough lines in the file, expecting at least " + sf_minLineCount, lines.size()>sf_minLineCount);
 
-      testChromoLine(lines.get(LINE_CHROMO).split(sf_separator)); // do this "out of order" since this is what sets lastVariantColumn
+      testChromoLine(lines.get(LINE_CHROMO).split(sf_separator)); // do this "out of order" since this is what sets numVariants
       testGeneLine(lines.get(LINE_GENE).split(sf_separator));
       testNamingLine(lines.get(LINE_NAMING).split(sf_separator));
       testProteinLine(lines.get(LINE_PROTEIN).split(sf_separator));
@@ -124,7 +124,7 @@ public class AlleleTranslationFileValidator {
 
   private static ArrayList<String> getVariantFields(String[] fields) {
     ArrayList<String> list = new ArrayList<String>();
-    for (int i = 2;  i <= lastVariantColumn;  i++) {
+    for (int i = 2;  i < 2 + numVariants;  i++) {
       if (i < fields.length) {
         list.add(fields[i]);
       } else {
@@ -145,6 +145,7 @@ public class AlleleTranslationFileValidator {
     outputWriter.write("ChrName\t" + chromosomeName + "\n");
     outputWriter.write("ChrRefSeq\t" + chromosomeRefSeq + "\n");
     outputWriter.write("ProteinRefSeq\t" + proteinRefSeq + "\n");
+    outputWriter.write("NumVariants\t" + numVariants + "\n");
     outputWriter.write("ResourceNote\t\t\t\t" + String.join("\t", headersResourceNote) + "\n");
     outputWriter.write("ProteinNote\t\t\t\t" + String.join("\t", headersProteinNote) + "\n");
     outputWriter.write("ChrPosition\t\t\t\t" + String.join("\t", headersChrPosition) + "\n");
@@ -219,14 +220,14 @@ public class AlleleTranslationFileValidator {
     genomeBuild = m.group(1);
     sf_logger.info("\tgenome build: " + genomeBuild);
 
-    lastVariantColumn = 2;
+    numVariants = 0;
     for (int i=2; i<fields.length; i++) {
       if (StringUtils.isNotBlank(fields[i])) {
-        lastVariantColumn = i;
+        numVariants = i - 1;
         verifyPositionText(fields[i]);
       }
     }
-    sf_logger.info("\t# variants specified: " + (lastVariantColumn-1));
+    sf_logger.info("\t# variants specified: " + numVariants);
 
     headersChrPosition = getVariantFields(fields);
   }
