@@ -5,7 +5,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -21,9 +24,11 @@ import java.util.stream.Collectors;
 import static org.junit.Assert.*;
 
 /**
- * Test to make sure TSV translation tables are in the expected format.
+ * Test to make sure TSV translation tables are in the expected format,
+ * and generate the intermediate TSV to be used with the haplotype caller.
  *
  * @author Ryan Whaley
+ * @author Alex Frase
  */
 public class AlleleTranslationFileValidator {
   private static final Logger sf_logger = LoggerFactory.getLogger(AlleleTranslationFileValidator.class);
@@ -34,7 +39,7 @@ public class AlleleTranslationFileValidator {
   private static final Pattern sf_refSeqPattern = Pattern.compile("^.*(N\\w_(\\d+)\\.\\d+).*$");
   private static final Pattern sf_genomeBuildPattern = Pattern.compile("^.*(GRCh\\d+(?:\\.p\\d+)?).*$");
   private static final Pattern sf_populationTitle = Pattern.compile("^(.*) Allele Frequency$");
-  private static final Pattern sf_basePattern = Pattern.compile("^(del[ATCG]*)|(ins[ATCG]*)|([ATCGMRWSYKVHDBN]+)$");
+  private static final Pattern sf_basePattern = Pattern.compile("^(del[ATCG]*)|(ins[ATCG]*)|([ATCGMRWSYKVHDBN]*)$");
   private static final Pattern sf_hgvsPosition = Pattern.compile("^[cgp]\\.(\\d+).*$");
   private static final String sf_hgvsSeparator = ";";
   private static final SimpleDateFormat sf_dateFormat = new SimpleDateFormat("MM/dd/yy");
@@ -44,18 +49,26 @@ public class AlleleTranslationFileValidator {
   private static final int LINE_PROTEIN = 2;
   private static final int LINE_CHROMO = 3;
   private static final int LINE_GENESEQ = 4;
+  private static final int LINE_RSID = 5;
   private static final int LINE_POPS = 6;
   private static final int OUTPUT_FORMAT_VERSION = 1;
 
+  private static Writer outputWriter;
   private static int lastVariantColumn;
   private static String geneName;
   private static String geneRefSeq;
+  private static String geneOrientation; // TODO
   private static String versionDate;
   private static String versionTag; // TODO
   private static String genomeBuild;
   private static String chromosomeName;
   private static String chromosomeRefSeq;
   private static String proteinRefSeq;
+  private static ArrayList<String> headersResourceNote;
+  private static ArrayList<String> headersProteinNote;
+  private static ArrayList<String> headersChrPosition;
+  private static ArrayList<String> headersGenePosition;
+  private static ArrayList<String> headersRSID;
 
   @Test
   public void testSheet() {
@@ -78,22 +91,58 @@ public class AlleleTranslationFileValidator {
     sf_logger.info("Checking {}", f.getFileName());
     try {
       List<String> lines = Files.readAllLines(f);
-
       assertTrue("Not enough lines in the file, expecting at least " + sf_minLineCount, lines.size()>sf_minLineCount);
 
+      testChromoLine(lines.get(LINE_CHROMO).split(sf_separator)); // do this "out of order" since this is what sets lastVariantColumn
       testGeneLine(lines.get(LINE_GENE).split(sf_separator));
       testNamingLine(lines.get(LINE_NAMING).split(sf_separator));
       testProteinLine(lines.get(LINE_PROTEIN).split(sf_separator));
-      testChromoLine(lines.get(LINE_CHROMO).split(sf_separator));
       testGeneSeqLine(lines.get(LINE_GENESEQ).split(sf_separator));
+      testRSIDLine(lines.get(LINE_RSID).split(sf_separator));
       testPopLine(lines.get(LINE_POPS).split(sf_separator));
+
+      outputWriter = new BufferedWriter(new OutputStreamWriter(Files.newOutputStream(Paths.get("output",geneName+".tsv")), "utf-8"));
+      writeHeader();
+
       testVariantLines(lines);
 
+      outputWriter.close();
     } catch (Exception e) {
       e.printStackTrace();
       fail("Problem checking file "+e.getMessage());
     }
   };
+
+  private static ArrayList<String> getVariantFields(String[] fields) {
+    ArrayList<String> list = new ArrayList<String>();
+    for (int i = 2;  i <= lastVariantColumn;  i++) {
+      if (i < fields.length) {
+        list.add(fields[i]);
+      } else {
+        list.add("");
+      }
+    }
+    return list;
+  }
+
+  private static void writeHeader() throws IOException {
+    outputWriter.write("FormatVersion\t" + OUTPUT_FORMAT_VERSION + "\n");
+    outputWriter.write("GeneName\t" + geneName + "\n");
+    outputWriter.write("GeneRefSeq\t" + geneRefSeq + "\n");
+    outputWriter.write("GeneOrientation\t" + geneOrientation + "\n");
+    outputWriter.write("ContentDate\t" + versionDate + "\n");
+    outputWriter.write("ContentVersion\t" + versionTag + "\n");
+    outputWriter.write("GenomeBuild\t" + genomeBuild + "\n");
+    outputWriter.write("ChrName\t" + chromosomeName + "\n");
+    outputWriter.write("ChrRefSeq\t" + chromosomeRefSeq + "\n");
+    outputWriter.write("ProteinRefSeq\t" + proteinRefSeq + "\n");
+    outputWriter.write("ResourceNote\t\t\t\t" + String.join("\t", headersResourceNote) + "\n");
+    outputWriter.write("ProteinNote\t\t\t\t" + String.join("\t", headersProteinNote) + "\n");
+    outputWriter.write("ChrPosition\t\t\t\t" + String.join("\t", headersChrPosition) + "\n");
+    outputWriter.write("GenePosition\t\t\t\t" + String.join("\t", headersGenePosition) + "\n");
+    outputWriter.write("rsID\t\t\t\t" + String.join("\t", headersRSID) + "\n");
+    outputWriter.write("Header\tID\tName\tFunctionStatus\n");
+  }
 
   private static void testGeneLine(String[] fields) throws ParseException {
     assertNotNull(fields);
@@ -112,6 +161,8 @@ public class AlleleTranslationFileValidator {
 
   private static void testNamingLine(String[] fields) {
     assertTrue("Row "+ LINE_NAMING +", Column 1: expected to be blank", StringUtils.isBlank(fields[0]));
+
+    headersResourceNote = getVariantFields(fields);
   }
 
   private static void testProteinLine(String[] fields) {
@@ -123,6 +174,8 @@ public class AlleleTranslationFileValidator {
 
     proteinRefSeq = m.group(1);
     sf_logger.info("\tprotein seq: "+proteinRefSeq);
+
+    headersProteinNote = getVariantFields(fields);
   }
 
   private static void testChromoLine(String[] fields) throws IOException {
@@ -157,7 +210,7 @@ public class AlleleTranslationFileValidator {
     genomeBuild = m.group(1);
     sf_logger.info("\tgenome build: " + genomeBuild);
 
-    int lastVariantColumn = 2;
+    lastVariantColumn = 2;
     for (int i=2; i<fields.length; i++) {
       if (StringUtils.isNotBlank(fields[i])) {
         lastVariantColumn = i;
@@ -165,6 +218,8 @@ public class AlleleTranslationFileValidator {
       }
     }
     sf_logger.info("\t# variants specified: " + (lastVariantColumn-1));
+
+    headersChrPosition = getVariantFields(fields);
   }
 
   private static void verifyPositionText(String text) {
@@ -185,6 +240,15 @@ public class AlleleTranslationFileValidator {
     for (int i=2; i<fields.length; i++) {
       verifyPositionText(fields[i]);
     }
+
+    headersGenePosition = getVariantFields(fields);
+  }
+
+  private static void testRSIDLine(String[] fields) {
+    String title = fields[1];
+    assertTrue("No rsIDs specified", StringUtils.isNotBlank(title));
+
+    headersRSID = getVariantFields(fields);
   }
 
   private static void testPopLine(String[] fields) {
@@ -204,26 +268,33 @@ public class AlleleTranslationFileValidator {
     });
   }
 
-  private static void testVariantLines(List<String> lines) {
+  private static void testVariantLines(List<String> lines) throws IOException {
     boolean isVariantLine = false;
-    String[] variantFields = lines.get(LINE_CHROMO).split(sf_separator);
-    int lastVariantIndex = variantFields.length;
-
+    boolean isNoteLine = false;
     for (String line : lines) {
-      if (line.toLowerCase().startsWith("notes:")) {
-        return;
+      if (isNoteLine) {
+        outputWriter.write("Note\t" + line + "\n");
       }
-      else if (line.startsWith("Allele")) {
-        isVariantLine = true;
+      else if (line.toLowerCase().startsWith("notes:")) {
+        isVariantLine = false;
+        isNoteLine = true;
       }
       else if (isVariantLine) {
         String[] fields = line.split(sf_separator);
         if (fields.length > 2) {
-          Set<String> badAlleles = Arrays.stream(Arrays.copyOfRange(fields, 2, lastVariantIndex))
-              .filter(f -> StringUtils.isNotBlank(f) && !sf_basePattern.matcher(f).matches())
+          ArrayList<String> alleles = getVariantFields(fields);
+          Set<String> badAlleles = alleles
+              .stream()
+              .filter(f -> !sf_basePattern.matcher(f).matches())
               .collect(Collectors.toSet());
           assertFalse(fields[0] + " has bad base pair values " + badAlleles.stream().collect(Collectors.joining(";")), badAlleles.size()>0);
+
+          // TODO lookup ID from web service
+          outputWriter.write("Allele\t\t"+fields[0]+"\t"+fields[1]+"\t"+String.join("\t", alleles)+"\n");
         }
+      }
+      else if (line.startsWith("Allele")) {
+        isVariantLine = true;
       }
     }
   }
