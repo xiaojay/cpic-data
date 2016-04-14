@@ -290,6 +290,13 @@ public class AlleleTranslationFileValidator {
           assertFalse(fields[0] + " has bad base pair values " + badAlleles.stream().collect(Collectors.joining(";")), badAlleles.size()>0);
 
           // TODO lookup ID from web service
+          for (int i = 0;  i < alleles.size();  i++) {
+            if (alleles.get(i).startsWith("ins")) {
+              alleles.set(i, alleles.get(i).substring(3));
+            } else if (alleles.get(i).startsWith("del")) {
+              alleles.set(i, "-");
+            }
+          }
           outputWriter.write("Allele\t\t"+fields[0]+"\t"+fields[1]+"\t"+String.join("\t", alleles)+"\n");
         }
       }
