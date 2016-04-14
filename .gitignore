@@ -6,6 +6,7 @@
 
 # Gradle files
 /.gradle/
+log.txt
 
 # Node files
 /node_modules/
