@@ -269,6 +269,7 @@ public class AlleleTranslationFileValidator {
   }
 
   private static void testVariantLines(List<String> lines) throws IOException {
+    HaplotypeIDMap geneHapMap = new HaplotypeIDMap();
     boolean isVariantLine = false;
     boolean isNoteLine = false;
     for (String line : lines) {
@@ -297,7 +298,11 @@ public class AlleleTranslationFileValidator {
               alleles.set(i, "-");
             }
           }
-          outputWriter.write("Allele\t\t"+fields[0]+"\t"+fields[1]+"\t"+String.join("\t", alleles)+"\n");
+          String id = geneHapMap.get(geneName, fields[0]);
+          if (id == null) {
+            id = "";
+          }
+          outputWriter.write("Allele\t" + id + "\t"+fields[0]+"\t"+fields[1]+"\t"+String.join("\t", alleles)+"\n");
         }
       }
       else if (line.startsWith("Allele")) {
