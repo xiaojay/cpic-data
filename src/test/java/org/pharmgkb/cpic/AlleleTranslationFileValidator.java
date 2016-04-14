@@ -5,7 +5,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
@@ -41,6 +43,7 @@ public class AlleleTranslationFileValidator {
   private static final Pattern sf_populationTitle = Pattern.compile("^(.*) Allele Frequency$");
   private static final Pattern sf_basePattern = Pattern.compile("^(del[ATCG]*)|(ins[ATCG]*)|([ATCGMRWSYKVHDBN]*)$");
   private static final Pattern sf_hgvsPosition = Pattern.compile("^[cgp]\\.(\\d+).*$");
+  private static final Pattern sf_orientationPattern = Pattern.compile("^.*(forward|reverse).*$");
   private static final String sf_hgvsSeparator = ";";
   private static final SimpleDateFormat sf_dateFormat = new SimpleDateFormat("MM/dd/yy");
 
@@ -57,9 +60,9 @@ public class AlleleTranslationFileValidator {
   private static int lastVariantColumn;
   private static String geneName;
   private static String geneRefSeq;
-  private static String geneOrientation; // TODO
+  private static String geneOrientation;
   private static String versionDate;
-  private static String versionTag; // TODO
+  private static String versionTag;
   private static String genomeBuild;
   private static String chromosomeName;
   private static String chromosomeRefSeq;
@@ -102,6 +105,12 @@ public class AlleleTranslationFileValidator {
       testPopLine(lines.get(LINE_POPS).split(sf_separator));
 
       outputWriter = new BufferedWriter(new OutputStreamWriter(Files.newOutputStream(Paths.get("output",geneName+".tsv")), "utf-8"));
+      Process prc = Runtime.getRuntime().exec(new String[]{"git","log","-1","--format=\"%at\"","--",f.toAbsolutePath().toString()});
+      BufferedReader prcReader = new BufferedReader(new InputStreamReader(prc.getInputStream()));
+      String line;
+      while ((line = prcReader.readLine()) != null) {
+        versionTag = line.replaceAll("^[ \t\r\n\"]+|[ \t\r\n\"]$", "");
+      }
       writeHeader();
 
       testVariantLines(lines);
@@ -237,6 +246,13 @@ public class AlleleTranslationFileValidator {
     geneRefSeq = m.group(1);
     sf_logger.info("\tgene seq: " + geneRefSeq);
 
+    m = sf_orientationPattern.matcher(title);
+    //TODO assertTrue("No gene orientation for gene sequence line "+LINE_GENESEQ, m.matches());
+
+    geneOrientation = "";//TODO m.group(1);
+    //TODO geneOrientation = geneOrientation.substring(0,1).toUpperCase() + geneOrientation.substring(1).toLowerCase();
+    sf_logger.info("\tgene orientation: " + geneOrientation);
+
     for (int i=2; i<fields.length; i++) {
       verifyPositionText(fields[i]);
     }
@@ -290,7 +306,6 @@ public class AlleleTranslationFileValidator {
               .collect(Collectors.toSet());
           assertFalse(fields[0] + " has bad base pair values " + badAlleles.stream().collect(Collectors.joining(";")), badAlleles.size()>0);
 
-          // TODO lookup ID from web service
           for (int i = 0;  i < alleles.size();  i++) {
             if (alleles.get(i).startsWith("ins")) {
               alleles.set(i, alleles.get(i).substring(3));
