@@ -13,6 +13,9 @@ import java.util.Map;
  */
 public class AssemblyMap {
 
+  public static final String GRCH38 = "b38";
+  public static final String GRCH37 = "b37";
+
   private Map<String,String> m_assemblyMap = new HashMap<>();
 
   public AssemblyMap() throws IOException {
