@@ -1,24 +1,26 @@
 # IntelliJ files
 /.idea/libraries/Gradle__*.xml
 /.idea/dictionaries/
+/.idea/gradle.xml
+/.idea/modules/
+/.idea/modules.xml
+/.idea/scssLintPlugin.xml
 /.idea/shelf/
 /.idea/workspace.xml
+/.idea/watcherTasks.xml
+/.idea/vcs.xml
 
-# Gradle files
-/.gradle/
-log.txt
-
-# Node files
-/node_modules/
-
-# Wiki checkout
+# Wiki
 /*.wiki/
 
-# OS files
-.DS_Store
-._.DS_Store
+# External tools
+.gradle/
+/bower_components/
+/node_modules/
 
 # Temporary files
+.DS_Store
+._.DS_Store
 *~
 /build/
 
