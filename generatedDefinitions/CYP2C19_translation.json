@@ -1,7 +1,7 @@
 {
   "formatVersion": "1",
   "contentVersion": null,
-  "modificationDate": "May 6, 2016 12:00:00 AM",
+  "modificationDate": "Jun 15, 2016 12:00:00 AM",
   "gene": "CYP2C19",
   "orientation": "forward",
   "chromosome": "chr10",
@@ -353,16 +353,6 @@
       "referenceRepeat": null
     },
     {
-      "position": 94849811,
-      "rsid": "rs4917623",
-      "chromosomeHgvsName": "g.94849811T>C",
-      "geneHgvsName": "g.92106T>C",
-      "proteinNote": "intronic",
-      "resourceNote": "87106T>C",
-      "type": "SNP",
-      "referenceRepeat": null
-    },
-    {
       "position": 94849964,
       "rsid": "rs377184510",
       "chromosomeHgvsName": "g.94849964A>G",
@@ -461,7 +451,6 @@
         "G",
         "G",
         "G",
-        "T",
         "A",
         "C",
         "C",
@@ -502,7 +491,7 @@
         null,
         null,
         null,
-        null,
+        "R",
         null,
         null,
         null,
@@ -512,7 +501,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -578,7 +566,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {
@@ -604,7 +591,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
@@ -689,7 +675,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {
@@ -702,7 +687,6 @@
       "id": "CA100097.1",
       "function": "No function",
       "alleles": [
-        null,
         null,
         null,
         null,
@@ -794,7 +778,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {
@@ -849,7 +832,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {
@@ -886,7 +868,6 @@
         null,
         null,
         "C",
-        null,
         null,
         null,
         null,
@@ -959,7 +940,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {
@@ -1014,7 +994,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {
@@ -1054,7 +1033,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -1122,7 +1100,6 @@
         null,
         null,
         null,
-        null,
         "C"
       ],
       "populationFrequency": {
@@ -1140,7 +1117,6 @@
       "id": "CA100105.1",
       "function": "Normal function",
       "alleles": [
-        null,
         null,
         null,
         null,
@@ -1232,7 +1208,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {
@@ -1287,7 +1262,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {
@@ -1305,7 +1279,6 @@
       "id": "CA100108.1",
       "function": "Decreased function",
       "alleles": [
-        null,
         null,
         null,
         null,
@@ -1397,7 +1370,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {
@@ -1448,7 +1420,6 @@
         "A",
         null,
         null,
-        "C",
         null,
         null,
         null,
@@ -1501,7 +1472,6 @@
         null,
         null,
         null,
-        "C",
         null,
         null,
         null,
@@ -1545,7 +1515,6 @@
         null,
         null,
         "C",
-        null,
         null,
         null,
         null,
@@ -1614,7 +1583,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {
@@ -1662,7 +1630,6 @@
         null,
         "A",
         null,
-        null,
         "G",
         null,
         null,
@@ -1683,7 +1650,6 @@
       "id": "CA100115.1",
       "function": "Decreased function",
       "alleles": [
-        null,
         null,
         null,
         null,
@@ -1773,7 +1739,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {
@@ -1793,7 +1758,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -1879,7 +1843,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {
@@ -1907,7 +1870,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -1985,7 +1947,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {
@@ -2016,7 +1977,6 @@
         null,
         null,
         "T",
-        null,
         null,
         null,
         null,
@@ -2091,7 +2051,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {
@@ -2131,7 +2090,6 @@
         null,
         null,
         "A",
-        null,
         null,
         null,
         null,
@@ -2197,7 +2155,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "populationFrequency": {
@@ -2231,7 +2188,6 @@
         null,
         null,
         "G",
-        null,
         null,
         null,
         null,
