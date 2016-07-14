@@ -1,15 +1,15 @@
-GENE:VKORC1	4/12/2016
-	Common Name	-1639G>A
-	Effect on protein NP_076869.1	nearGene-5
-	Position at NC_000016.10 (Homo sapiens chromosome 16, GRCh38.p2)	g.31096368C>T
-	Position at NG_011564.1 (VKORC1 RefSeqGene; reverse relative to chromosome)	g.3588G>A
-	rsID	rs9923231
-Allele	Allele Functional Status		African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency
--1639G		C
--1639A		T		0.11	0.39		0.91
-
-NOTES:
-rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)
-All variants are annotated to the positive DNA strand.
-Allele frequencies based on the CPIC Warfarin Guideline supplement: https://github.com/PharmGKB/cpic-guidelines/raw/master/warfarin/2011/21900891-supplement.pdf
-Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913].
+GENE:VKORC1	4/12/2016																								
+	Common Name	-1639G>A																							
+	Effect on protein NP_076869.1	nearGene-5																							
+	Position at NC_000016.10 (Homo sapiens chromosome 16, GRCh38.p2)	g.31096368C>T																							
+	Position at NG_011564.1 (VKORC1 RefSeqGene; reverse relative to chromosome)	g.3588G>A																							
+	rsID	rs9923231																							
+Allele	Allele Functional Status		African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency															
+-1639G		C																							
+-1639A		T		0.11	0.39		0.91																		
+																									
+NOTES:																									
+rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)																									
+All variants are annotated to the positive DNA strand.																									
+Allele frequencies based on the CPIC Warfarin Guideline supplement: https://github.com/PharmGKB/cpic-guidelines/raw/master/warfarin/2011/21900891-supplement.pdf																									
+Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913].																									

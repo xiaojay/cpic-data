@@ -94,7 +94,16 @@
         "G",
         "C"
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*6",
@@ -107,7 +116,16 @@
         "A",
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*27",
@@ -120,7 +138,16 @@
         null,
         "A"
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*28",
@@ -133,7 +160,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*36",
@@ -146,7 +182,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*37",
@@ -159,7 +204,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*60",
@@ -172,7 +226,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     },
     {
       "name": "*80",
@@ -185,7 +248,16 @@
         null,
         null
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     }
   ]
 }

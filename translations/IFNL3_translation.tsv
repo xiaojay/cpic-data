@@ -1,15 +1,15 @@
-GENE:IFNL3	4/12/2016
-	Common name	rs12979860C/T
-	Effect on protein NP_742151.2	nearGene-5
-	Position at NC_000019.10 (Homo sapiens chromosome 19, GRCh38.p2)	g.39248147C>T
-	Position at NG_042193.1 (IFLN3 RefSeqGene; reverse relative to chromosome)	g.1825G>A
-	rsID	rs12979860
-Allele	Allele Functional Status		African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency
-rs12979860C		C		0.39	0.63		0.87		0.55
-rs12979860T		T
-
-NOTES:
-rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)
-All variants are annotated to the positive DNA strand.
-Allele frequencies from the CPIC supplement at https://github.com/PharmGKB/cpic-guidelines/raw/master/pegintron/2013/24096968-supplement.pdf
-Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913].
+GENE:IFNL3	4/12/2016																								
+	Common name	rs12979860C/T																							
+	Effect on protein NP_742151.2	nearGene-5																							
+	Position at NC_000019.10 (Homo sapiens chromosome 19, GRCh38.p2)	g.39248147C>T																							
+	Position at NG_042193.1 (IFLN3 RefSeqGene; reverse relative to chromosome)	g.1825G>A																							
+	rsID	rs12979860																							
+Allele	Allele Functional Status		African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency															
+rs12979860C		C		0.39	0.63		0.87		0.55																
+rs12979860T		T																							
+																									
+NOTES:																									
+rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)																									
+All variants are annotated to the positive DNA strand.																									
+Allele frequencies from the CPIC supplement at https://github.com/PharmGKB/cpic-guidelines/raw/master/pegintron/2013/24096968-supplement.pdf																									
+Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913].																									

@@ -1,52 +1,52 @@
-GENE: SLCO1B1	3/30/2016
-	Nucleotide Name (optional)
-	Effect on protein (NP_006437.3)		R57W	G71R	F73L	V82A	N130D	S137=	N151S	P155T	E156G	V174A	L191=	L193R	F199=	I222V	I245V	R253Q	I353T	F400V	F400L	N432D	G437R	D462G	G488A	L643F	D655G	E667G	H678Y	S682F
-	Position at NC_000012.12 (Homo sapiens chromosome 12, GRCh38.p2)	g.21130388G>A	g.21172734C>T	g.21172776G>A	g.21172782T>C	g.21174595T>C	g.21176804A>G	g.21176827G>A	g.21176868A>G	g.21176879C>A	g.21176883A>G	g.21178615T>C	g.21178665T>C	g.21178672T>G	g.21178691C>T	g.21178957A>G	g.21196951A>G	g.21196976G>A	g.21200595T>C	g.21202553T>G	g.21202555C>G	g.21202649A>G	g.21202664G>A	g.21205921A>G	g.21205999G>C	g.21239042A>C	g.21239077A>G	g.21239113A>G	g.21239145C>T	g.21239158C>T
-	Position at NG_011745.1 (SLCO1B1 RefSeqGene; forward relative to chromosome)	g.4195G>A	g.46541C>T	g.46583G>A	g.46589T>C	g.48402T>C	g.50611A>G	g.50634G>A	g.50675A>G	g.50686C>A	g.50690A>G	g.52422T>C	g.52472T>C	g.52479T>G	g.52498C>T	g.52764A>G	g.70758A>G	g.70783G>A	g.74402T>C	g.76360T>G	g.76362C>G	g.76456A>G	g.76471G>A	g.79728A>G	g.79806G>C	g.112849A>C	g.112884A>G	g.112920A>G	g.112952C>T	g.112965C>T
-	rsID	rs4149015	rs139257324	rs373327528	rs56101265	rs56061388	rs2306283	rs11045818	rs2306282	rs11045819	rs72559745	rs4149056	rs4149057	rs72559746	rs2291075	rs79135870	rs11045852	rs11045853	rs55901008		rs59113707	rs56387224	rs142965323	rs72559748	rs59502379	rs34671512	rs56199088	rs55737008	rs200995543	rs140790673
-Allele	Allele Functional Status																														African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency
-*1A	Normal function	G	C	G	T	T	A	G	A	C	A	T	T	T	C	A	A	G	T	T	C	A	G	A	G	A	A	A	C	C	0.23	0.22	0.5	0.49	0.27	0.33	0.37	0.34
-*1B	Normal function						G																								0.7	0.76	0.22	0.31	0.58	0.58	0.39	0.66
-*2	Possible decreased function				C
-*3	Possible decreased function					C					G
-*4	Unknown function/Unclear function									A
-*5	Decreased function											C																			0	0	0.01	0.05	0	0	0	0
-*6	Possible decreased function																		C
-*7	Unknown function/Unclear function																					G
-*8	Unknown function/Unclear function																							G
-*9	Possible decreased function																								C
-*10	Possible decreased function																										G
-*11	Unknown function/Unclear function																											G
-*12	Unknown function/Unclear function				C																						G
-*13	Unknown function/Unclear function					C					G																	G
-*14	Possible increased function						G			A
-*15	Decreased function						G					C																			0.06	0.01	0.14	0.15	0.14	0.08	0.24	0
-*16	Unknown function/Unclear function								G
-*17	Decreased function	A					G					C
-*18	Unknown function/Unclear function						G	A		A			C	G
-*19	Unknown function/Unclear function												C													C
-*20	Unknown function/Unclear function						G								T											C
-*21	Unknown function/Unclear function	A					G								T
-*22	Unknown function/Unclear function																									C
-*23	Possible decreased function			A
-*24	Unknown function/Unclear function						G										G
-*25	Unknown function/Unclear function						G			A							G	A
-*26	Unknown function/Unclear function																						A
-*27	Unknown function/Unclear function						G														G
-*28	Unknown function/Unclear function						G										G	A
-*29	Unknown function/Unclear function						G																							T
-*30	Unknown function/Unclear function						G									G
-*31	Possible decreased function						G																		C
-*32	Unknown function/Unclear function						G			A							G
-*33	Unknown function/Unclear function		T				G										G	A
-*34	Unknown function/Unclear function																												T
-*35	Possible increased function						G																			C
-*36	Unknown function/Unclear function																			G
-
-NOTES:
-rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)
-All variants are annotated to the positive DNA strand.
-Transport function was tested for methotrexate, and may not be generalizable to statins. *23 was observed only once in 700 patients, but in vitro transport assays showed little/no function. *31 was observed only in patients of African ancestry, and in vitro transport assays showed little/no function for this haplotype also. *14 and *35 were associated with higher methotrexate clearance in patients, but were not tested for in vitro transport function.
-An important caveat for all genotyping tests is that the decision to assign an allele a "wild-type" status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as "wild-type".
-Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see Supplemental Table S4 in the CPIC  guideline supplement for simvastatin at https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2014/24918167-supplement.pdf
-Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913].
+GENE: SLCO1B1	3/30/2016																																							
+	Nucleotide Name (optional)																																							
+	Effect on protein (NP_006437.3)		R57W	G71R	F73L	V82A	N130D	S137=	N151S	P155T	E156G	V174A	L191=	L193R	F199=	I222V	I245V	R253Q	I353T	F400V	F400L	N432D	G437R	D462G	G488A	L643F	D655G	E667G	H678Y	S682F										
+	Position at NC_000012.12 (Homo sapiens chromosome 12, GRCh38.p2)	g.21130388G>A	g.21172734C>T	g.21172776G>A	g.21172782T>C	g.21174595T>C	g.21176804A>G	g.21176827G>A	g.21176868A>G	g.21176879C>A	g.21176883A>G	g.21178615T>C	g.21178665T>C	g.21178672T>G	g.21178691C>T	g.21178957A>G	g.21196951A>G	g.21196976G>A	g.21200595T>C	g.21202553T>G	g.21202555C>G	g.21202649A>G	g.21202664G>A	g.21205921A>G	g.21205999G>C	g.21239042A>C	g.21239077A>G	g.21239113A>G	g.21239145C>T	g.21239158C>T										
+	Position at NG_011745.1 (SLCO1B1 RefSeqGene; forward relative to chromosome)	g.4195G>A	g.46541C>T	g.46583G>A	g.46589T>C	g.48402T>C	g.50611A>G	g.50634G>A	g.50675A>G	g.50686C>A	g.50690A>G	g.52422T>C	g.52472T>C	g.52479T>G	g.52498C>T	g.52764A>G	g.70758A>G	g.70783G>A	g.74402T>C	g.76360T>G	g.76362C>G	g.76456A>G	g.76471G>A	g.79728A>G	g.79806G>C	g.112849A>C	g.112884A>G	g.112920A>G	g.112952C>T	g.112965C>T										
+	rsID	rs4149015	rs139257324	rs373327528	rs56101265	rs56061388	rs2306283	rs11045818	rs2306282	rs11045819	rs72559745	rs4149056	rs4149057	rs72559746	rs2291075	rs79135870	rs11045852	rs11045853	rs55901008		rs59113707	rs56387224	rs142965323	rs72559748	rs59502379	rs34671512	rs56199088	rs55737008	rs200995543	rs140790673										
+Allele	Allele Functional Status																														African Allele Frequency	African American Allele Frequency	Caucasian (European + North American) Allele Frequency	Middle Eastern Allele Frequency	East Asian Allele Frequency	South/Central Asian Allele Frequency	Americas Allele Frequency	Oceanian Allele Frequency		
+*1A	Normal function	G	C	G	T	T	A	G	A	C	A	T	T	T	C	A	A	G	T	T	C	A	G	A	G	A	A	A	C	C	0.23	0.22	0.5	0.49	0.27	0.33	0.37	0.34		
+*1B	Normal function						G																								0.7	0.76	0.22	0.31	0.58	0.58	0.39	0.66		
+*2	Possible decreased function				C																																			
+*3	Possible decreased function					C					G																													
+*4	Unknown function/Unclear function									A																														
+*5	Decreased function											C																			0	0	0.01	0.05	0	0	0	0		
+*6	Possible decreased function																		C																					
+*7	Unknown function/Unclear function																					G																		
+*8	Unknown function/Unclear function																							G																
+*9	Possible decreased function																								C															
+*10	Possible decreased function																										G													
+*11	Unknown function/Unclear function																											G												
+*12	Unknown function/Unclear function				C																						G													
+*13	Unknown function/Unclear function					C					G																	G												
+*14	Possible increased function						G			A																														
+*15	Decreased function						G					C																			0.06	0.01	0.14	0.15	0.14	0.08	0.24	0		
+*16	Unknown function/Unclear function								G																															
+*17	Decreased function	A					G					C																												
+*18	Unknown function/Unclear function						G	A		A			C	G																										
+*19	Unknown function/Unclear function												C													C														
+*20	Unknown function/Unclear function						G								T											C														
+*21	Unknown function/Unclear function	A					G								T																									
+*22	Unknown function/Unclear function																									C														
+*23	Possible decreased function			A																																				
+*24	Unknown function/Unclear function						G										G																							
+*25	Unknown function/Unclear function						G			A							G	A																						
+*26	Unknown function/Unclear function																						A																	
+*27	Unknown function/Unclear function						G														G																			
+*28	Unknown function/Unclear function						G										G	A																						
+*29	Unknown function/Unclear function						G																							T										
+*30	Unknown function/Unclear function						G									G																								
+*31	Possible decreased function						G																		C															
+*32	Unknown function/Unclear function						G			A							G																							
+*33	Unknown function/Unclear function		T				G										G	A																						
+*34	Unknown function/Unclear function																												T											
+*35	Possible increased function						G																			C														
+*36	Unknown function/Unclear function																			G																				
+																																								
+NOTES:																																								
+rsID=RefSNP accession ID number (http://www.ncbi.nlm.nih.gov/snp/)																																								
+All variants are annotated to the positive DNA strand.																																								
+Transport function was tested for methotrexate, and may not be generalizable to statins. *23 was observed only once in 700 patients, but in vitro transport assays showed little/no function. *31 was observed only in patients of African ancestry, and in vitro transport assays showed little/no function for this haplotype also. *14 and *35 were associated with higher methotrexate clearance in patients, but were not tested for in vitro transport function.																																								
+An important caveat for all genotyping tests is that the decision to assign an allele a "wild-type" status is based upon a genotyping test that interrogates only the most common and already-proven sites of functional variation. In human DNA, it is always possible that a new, previously undiscovered (and therefore un-interrogated) site of variation may confer loss-of-function in an individual, and thus lead to the rare possibility of a non-functional allele being erroneously called as "wild-type".																																								
+Average frequencies are based on the actual number of subjects with each allele as reported in one or multiple studies.  For full details and references of allele frequencies, see Supplemental Table S4 in the CPIC  guideline supplement for simvastatin at https://github.com/PharmGKB/cpic-guidelines/raw/master/simvastatin/2014/24918167-supplement.pdf																																								
+Worldwide race/ethnic designations correspond to the Human Genome Diversity Project- Centre d'Etude du Polymorphisme Humain (HGDP-CEPH) [PMID: 16355252, PMID: 12493913].																																								

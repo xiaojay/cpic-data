@@ -46,6 +46,7 @@
         "C"
       ],
       "populationFrequency": {
+        "Oceanian Allele Frequency": "",
         "African American Allele Frequency": "0.39",
         "Caucasian (European + North American) Allele Frequency": "0.63",
         "Middle Eastern Allele Frequency": "",
@@ -62,7 +63,16 @@
       "alleles": [
         "T"
       ],
-      "populationFrequency": {}
+      "populationFrequency": {
+        "Oceanian Allele Frequency": "",
+        "African American Allele Frequency": "",
+        "Caucasian (European + North American) Allele Frequency": "",
+        "Middle Eastern Allele Frequency": "",
+        "East Asian Allele Frequency": "",
+        "South/Central Asian Allele Frequency": "",
+        "Americas Allele Frequency": "",
+        "African Allele Frequency": ""
+      }
     }
   ]
 }
