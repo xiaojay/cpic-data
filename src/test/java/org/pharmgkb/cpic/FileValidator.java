@@ -48,19 +48,15 @@ public class FileValidator {
             if (!f.toString().endsWith(".tsv")) {
               fail("Non .tsv file in translations directory: " + f);
             }
-            try {
-              CuratedDefinitionParser parser = new CuratedDefinitionParser(f);
-              DefinitionFile definitionFile = parser.parse();
+            CuratedDefinitionParser parser = new CuratedDefinitionParser(f);
+            DefinitionFile definitionFile = parser.parse();
 
-              assertNotNull("Missing gene symbol", definitionFile.getGeneSymbol());
-              assertNotNull("No variant defined", definitionFile.getVariants());
-              assertNotNull("No named alleles defined", definitionFile.getNamedAlleles());
-              assertTrue("No named alleles defined", definitionFile.getNamedAlleles().size() > 0);
-              assertEquals("Number of variants and number of allele positions don't match",
-                  definitionFile.getVariants().length, definitionFile.getNamedAlleles().get(0).getAlleles().length);
-            } catch (IOException ex) {
-              fail(ex.getMessage());
-            }
+            assertNotNull("Missing gene symbol", definitionFile.getGeneSymbol());
+            assertNotNull("No variant defined", definitionFile.getVariants());
+            assertNotNull("No named alleles defined", definitionFile.getNamedAlleles());
+            assertTrue("No named alleles defined", definitionFile.getNamedAlleles().size() > 0);
+            assertEquals("Number of variants and number of allele positions don't match",
+                definitionFile.getVariants().length, definitionFile.getNamedAlleles().get(0).getAlleles().length);
           });
 
     } catch (Exception e) {
